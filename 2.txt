@@ -1,12 +1,7 @@
-@input1.txt	0.0
-@input2.txt	0.0
-a@input1.txt	0.0
-a@input2.txt	0.0
 aback@input1.txt	1.1736001944781467
 abandoned@input1.txt	0.6931471805599453
 abide@input1.txt	0.0
 abide@input2.txt	0.0
-able,--to@input2.txt	0.6931471805599453
 abroad@input1.txt	0.6931471805599453
 absence@input1.txt	1.6540532083963482
 absolute@input1.txt	1.9351002048969557
@@ -37,8 +32,7 @@ account@input2.txt	0.0
 accounts@input1.txt	1.6540532083963482
 accumulation@input1.txt	0.6931471805599453
 accurate@input1.txt	0.6931471805599453
-accurately--any@input1.txt	0.6931471805599453
-accurately--but@input1.txt	0.6931471805599453
+accurately@input1.txt	1.1736001944781467
 accustomed@input1.txt	0.6931471805599453
 acquire@input1.txt	0.6931471805599453
 acres@input1.txt	0.6931471805599453
@@ -114,13 +108,12 @@ alas@input1.txt	0.6931471805599453
 albany@input1.txt	1.6540532083963482
 ale@input2.txt	0.6931471805599453
 alexander@input1.txt	1.1736001944781467
-algernon@input1.txt	4.5685240426484075
+algernon@input1.txt	4.571105599377602
 algernon's@input1.txt	1.1736001944781467
 algy@input1.txt	2.8034493244194274
 algy's@input1.txt	0.6931471805599453
 alienating@input1.txt	0.6931471805599453
 alive@input2.txt	0.6931471805599453
-all,--the@input2.txt	0.6931471805599453
 allen@input1.txt	0.6931471805599453
 alliance@input1.txt	1.1736001944781467
 allow@input1.txt	0.0
@@ -154,8 +147,7 @@ ancient@input1.txt	0.6931471805599453
 angel@input1.txt	0.6931471805599453
 angles@input2.txt	0.6931471805599453
 angrily@input1.txt	0.6931471805599453
-angry@input2.txt	1.6540532083963482
-angry--asked@input2.txt	0.6931471805599453
+angry@input2.txt	1.808724531849926
 anguish@input1.txt	0.6931471805599453
 announcement@input1.txt	0.6931471805599453
 annoyed@input1.txt	0.6931471805599453
@@ -259,12 +251,8 @@ author@input2.txt	0.0
 authors@input1.txt	0.6931471805599453
 average@input1.txt	0.6931471805599453
 await@input1.txt	0.6931471805599453
-awake@input2.txt	1.1736001944781467
-awake--o@input2.txt	0.6931471805599453
+awake@input2.txt	1.4546471909787544
 aware@input1.txt	1.808724531849926
-away,--he@input2.txt	0.6931471805599453
-away--you@input1.txt	0.0
-away--you@input2.txt	0.0
 awful@input2.txt	1.1736001944781467
 axe@input2.txt	0.6931471805599453
 aynesworth@input1.txt	0.6931471805599453
@@ -276,7 +264,6 @@ bachelors@input1.txt	0.6931471805599453
 back-somersault@input2.txt	0.6931471805599453
 bad@input1.txt	0.0
 bad@input2.txt	0.0
-bad--at@input2.txt	0.6931471805599453
 badly@input1.txt	1.1736001944781467
 bag@input1.txt	0.6931471805599453
 bangle@input1.txt	0.6931471805599453
@@ -296,7 +283,6 @@ basis@input1.txt	0.6931471805599453
 basket@input1.txt	0.6931471805599453
 bay@input2.txt	0.6931471805599453
 bayswater@input1.txt	0.6931471805599453
-be--and@input1.txt	0.6931471805599453
 bear@input1.txt	0.6931471805599453
 beastly@input1.txt	0.6931471805599453
 beats@input1.txt	1.1736001944781467
@@ -305,7 +291,6 @@ beautiful@input2.txt	0.0
 beauty@input1.txt	1.4546471909787544
 bed@input1.txt	0.0
 bed@input2.txt	0.0
-bed--it@input2.txt	0.6931471805599453
 bedrooms@input1.txt	0.6931471805599453
 beds@input2.txt	1.1736001944781467
 bedstead@input2.txt	1.4546471909787544
@@ -319,7 +304,6 @@ behave@input1.txt	1.4546471909787544
 behaved@input1.txt	1.1736001944781467
 behaving@input1.txt	0.6931471805599453
 belgrave@input1.txt	1.4546471909787544
-believe--and@input2.txt	0.6931471805599453
 believed@input2.txt	0.6931471805599453
 bell@input1.txt	1.4546471909787544
 belonging@input2.txt	0.6931471805599453
@@ -338,8 +322,7 @@ binary@input1.txt	0.0
 binary@input2.txt	0.0
 birth@input1.txt	1.4546471909787544
 bishop@input1.txt	0.6931471805599453
-bit@input2.txt	1.9351002048969557
-bit--only@input2.txt	0.6931471805599453
+bit@input2.txt	2.0419493140006186
 bites@input1.txt	0.6931471805599453
 bitter@input1.txt	0.6931471805599453
 bitterly@input1.txt	0.6931471805599453
@@ -409,8 +392,6 @@ broken@input2.txt	0.0
 brother@input1.txt	0.0
 brother@input2.txt	0.0
 brother's@input1.txt	1.1736001944781467
-brother--his@input1.txt	0.6931471805599453
-brother--they@input2.txt	0.6931471805599453
 brothers@input1.txt	1.1736001944781467
 brought@input1.txt	1.4546471909787544
 brow@input1.txt	0.6931471805599453
@@ -469,8 +450,6 @@ cardew's@input1.txt	1.808724531849926
 cards@input1.txt	0.6931471805599453
 care@input1.txt	0.0
 care@input2.txt	0.0
-care--there@input2.txt	0.6931471805599453
-care--to@input1.txt	0.6931471805599453
 cared@input1.txt	0.6931471805599453
 careful@input1.txt	0.0
 careful@input2.txt	0.0
@@ -502,8 +481,7 @@ ccx074@pglaf.org	0.6931471805599453
 cease@input1.txt	0.0
 cease@input2.txt	0.0
 ceased@input1.txt	1.1736001944781467
-cecily@input1.txt	4.531334815561815
-cecily,--how@input1.txt	0.6931471805599453
+cecily@input1.txt	4.5367712919055565
 celebrations@input1.txt	0.6931471805599453
 celibacy@input1.txt	1.1736001944781467
 celibate@input1.txt	0.6931471805599453
@@ -568,8 +546,7 @@ choose@input2.txt	0.0
 chooses@input1.txt	0.6931471805599453
 christen@input1.txt	0.6931471805599453
 christened@input1.txt	2.6569810219173258
-christening@input1.txt	1.1736001944781467
-christening--i@input1.txt	0.6931471805599453
+christening@input1.txt	1.4546471909787544
 christenings@input1.txt	1.808724531849926
 christian@input1.txt	2.1345062223145495
 chronicle@input1.txt	0.6931471805599453
@@ -745,7 +722,7 @@ convert@input2.txt	0.0
 converts@input1.txt	0.6931471805599453
 convinced@input2.txt	0.6931471805599453
 convincing@input1.txt	0.6931471805599453
-convolutions--why@input2.txt	0.6931471805599453
+convolutions@input2.txt	0.6931471805599453
 convulsively@input1.txt	0.6931471805599453
 copied@input1.txt	0.0
 copied@input2.txt	0.0
@@ -759,7 +736,6 @@ copyright@input1.txt	0.0
 copyright@input2.txt	0.0
 corner@input1.txt	0.0
 corner@input2.txt	0.0
-corner--but@input2.txt	0.6931471805599453
 corporation@input1.txt	0.0
 corporation@input2.txt	0.0
 corrected@input2.txt	0.6931471805599453
@@ -865,9 +841,8 @@ darling@input1.txt	0.0
 darling@input2.txt	0.0
 data@input1.txt	0.0
 data@input2.txt	0.0
-daughter@input1.txt	0.6931471805599453
+daughter@input1.txt	1.1736001944781467
 daughter's@input1.txt	0.6931471805599453
-daughter--a@input1.txt	0.6931471805599453
 david@input1.txt	0.6931471805599453
 day@input1.txt	0.0
 day@input2.txt	0.0
@@ -879,7 +854,6 @@ dead@input1.txt	0.0
 dead@input2.txt	0.0
 deal@input1.txt	0.0
 deal@input2.txt	0.0
-deal--having@input2.txt	0.6931471805599453
 dear@input1.txt	0.0
 dear@input2.txt	0.0
 dearest@input1.txt	1.1736001944781467
@@ -945,8 +919,8 @@ deposit@input1.txt	0.6931471805599453
 deposited@input1.txt	1.1736001944781467
 depress@input1.txt	0.6931471805599453
 depressing@input2.txt	0.6931471805599453
-depression@input1.txt	0.6931471805599453
-depression--a@input2.txt	0.6931471805599453
+depression@input1.txt	0.0
+depression@input2.txt	0.0
 derision@input2.txt	0.6931471805599453
 derivative@input1.txt	0.0
 derivative@input2.txt	0.0
@@ -999,8 +973,8 @@ dined@input1.txt	1.1736001944781467
 dining@input1.txt	1.1736001944781467
 dining-room@input1.txt	0.0
 dining-room@input2.txt	0.0
-dinner@input1.txt	1.9351002048969557
-dinner--i@input2.txt	0.6931471805599453
+dinner@input1.txt	0.0
+dinner@input2.txt	0.0
 dinner-table@input1.txt	0.6931471805599453
 direct@input1.txt	0.0
 direct@input2.txt	0.0
@@ -1268,7 +1242,6 @@ estate@input2.txt	0.0
 esteemed@input1.txt	0.6931471805599453
 eternal@input1.txt	0.6931471805599453
 evelyn@input1.txt	0.6931471805599453
-even--there@input2.txt	0.6931471805599453
 evening@input1.txt	0.0
 evening@input2.txt	0.0
 evensong@input1.txt	0.6931471805599453
@@ -1408,7 +1381,7 @@ feelings@input1.txt	0.6931471805599453
 feels@input1.txt	0.6931471805599453
 fees@input1.txt	0.0
 fees@input2.txt	0.0
-felicity--but@input2.txt	0.6931471805599453
+felicity@input2.txt	0.6931471805599453
 fell@input1.txt	0.6931471805599453
 fellow@input1.txt	2.415553218815157
 felt@input1.txt	0.0
@@ -1459,7 +1432,7 @@ flirt@input1.txt	1.4546471909787544
 flirts@input1.txt	1.1736001944781467
 floor@input2.txt	1.6540532083963482
 florid@input2.txt	0.6931471805599453
-flourishes--a@input2.txt	0.6931471805599453
+flourishes@input2.txt	0.6931471805599453
 flourishing@input2.txt	0.6931471805599453
 flower@input1.txt	0.6931471805599453
 flowers@input1.txt	0.0
@@ -1554,7 +1527,6 @@ galore@input2.txt	0.6931471805599453
 garb@input1.txt	0.6931471805599453
 garden@input1.txt	0.0
 garden@input2.txt	0.0
-garden--large@input2.txt	0.6931471805599453
 gardeners@input2.txt	0.6931471805599453
 gate@input2.txt	0.6931471805599453
 gates@input2.txt	0.6931471805599453
@@ -1677,9 +1649,8 @@ gutenberg-tm@input1.txt	0.0
 gutenberg-tm@input2.txt	0.0
 gutenberg-tm's@input1.txt	0.0
 gutenberg-tm's@input2.txt	0.0
-gwendolen@input1.txt	4.277053583850962
+gwendolen@input1.txt	4.28098077384961
 gwendolen's@input1.txt	0.6931471805599453
-gwendolen--cecily--it@input1.txt	0.6931471805599453
 gymnasium@input2.txt	0.6931471805599453
 gymnastics@input2.txt	0.6931471805599453
 habit@input2.txt	1.4546471909787544
@@ -1695,8 +1666,7 @@ hallo@input1.txt	0.6931471805599453
 halls@input2.txt	0.6931471805599453
 hand@input1.txt	0.0
 hand@input2.txt	0.0
-hand-bag@input1.txt	2.614959236232751
-hand-bag--a@input1.txt	0.6931471805599453
+hand-bag@input1.txt	2.6569810219173258
 handing@input1.txt	0.6931471805599453
 handles@input1.txt	1.1736001944781467
 hands@input1.txt	0.0
@@ -1729,7 +1699,6 @@ hated@input2.txt	1.1736001944781467
 hates@input2.txt	1.1736001944781467
 hatred@input2.txt	0.6931471805599453
 haunted@input2.txt	0.6931471805599453
-have--markby@input1.txt	0.6931471805599453
 he'll@input1.txt	0.6931471805599453
 he's@input1.txt	0.0
 he's@input2.txt	0.0
@@ -1746,8 +1715,8 @@ heard@input2.txt	0.0
 hearing@input1.txt	1.1736001944781467
 heart@input2.txt	0.6931471805599453
 heartless@input1.txt	1.9351002048969557
+heaven@input1.txt	0.6931471805599453
 heaven's@input1.txt	1.1736001944781467
-heaven--[jack@input1.txt	0.6931471805599453
 heavens@input1.txt	2.2161472013975634
 heavy@input2.txt	1.4546471909787544
 hedges@input2.txt	0.6931471805599453
@@ -1806,8 +1775,6 @@ hours@input1.txt	0.0
 hours@input2.txt	0.0
 house@input1.txt	0.0
 house@input2.txt	0.0
-house--i@input2.txt	0.6931471805599453
-house--to@input2.txt	0.6931471805599453
 household@input1.txt	0.6931471805599453
 households@input1.txt	0.6931471805599453
 housekeeper@input1.txt	0.0
@@ -1845,7 +1812,7 @@ husbands@input1.txt	0.6931471805599453
 hypertext@input1.txt	0.0
 hypertext@input2.txt	0.0
 hypocrisy@input1.txt	0.6931471805599453
-hypothesis,--that@input2.txt	0.6931471805599453
+hypothesis@input2.txt	0.6931471805599453
 hysterical@input2.txt	0.6931471805599453
 i'd@input1.txt	1.6540532083963482
 i'm@input1.txt	0.0
@@ -1940,7 +1907,7 @@ indirect@input1.txt	0.0
 indirect@input2.txt	0.0
 indirectly@input1.txt	0.0
 indirectly@input2.txt	0.0
-indiscretion--has@input1.txt	0.6931471805599453
+indiscretion@input1.txt	0.6931471805599453
 individual@input1.txt	0.0
 individual@input2.txt	0.0
 induce@input1.txt	1.1736001944781467
@@ -2031,10 +1998,8 @@ irs@input2.txt	0.0
 iso-646-us@input1.txt	0.6931471805599453
 isolated@input2.txt	0.6931471805599453
 it's@input1.txt	2.6569810219173258
-it--an@input1.txt	0.6931471805599453
-it--there@input2.txt	0.6931471805599453
 j.p@input1.txt	1.1736001944781467
-jack@input1.txt	4.613581957499865
+jack@input1.txt	4.616001321842878
 jack's@input1.txt	1.1736001944781467
 jacket@input1.txt	0.6931471805599453
 jacks@input1.txt	0.6931471805599453
@@ -2081,7 +2046,6 @@ knew@input2.txt	0.0
 knobs@input2.txt	0.6931471805599453
 knocks@input2.txt	0.6931471805599453
 knot@input1.txt	0.6931471805599453
-know--but@input1.txt	0.6931471805599453
 knowing@input1.txt	1.4546471909787544
 knowledge@input1.txt	1.1736001944781467
 lack@input2.txt	1.1736001944781467
@@ -2102,7 +2066,8 @@ lane's@input1.txt	0.6931471805599453
 language@input1.txt	0.0
 language@input2.txt	0.0
 languidly@input1.txt	0.6931471805599453
-large@input1.txt	2.0419493140006186
+large@input1.txt	0.0
+large@input2.txt	0.0
 larger@input1.txt	1.1736001944781467
 lasted@input1.txt	0.6931471805599453
 late@input1.txt	1.4546471909787544
@@ -2181,7 +2146,6 @@ lifted@input1.txt	0.6931471805599453
 light@input2.txt	1.4546471909787544
 lights@input1.txt	0.0
 lights@input2.txt	0.0
-like--algernon--for@input1.txt	0.6931471805599453
 likelihood@input1.txt	0.6931471805599453
 likes@input1.txt	0.6931471805599453
 limitation@input1.txt	0.0
@@ -2293,7 +2257,7 @@ manuscript@input1.txt	1.6540532083963482
 march@input1.txt	1.1736001944781467
 marechal@input1.txt	0.6931471805599453
 mark@input2.txt	0.6931471805599453
-markby@input1.txt	1.9351002048969557
+markby@input1.txt	2.0419493140006186
 markby's@input1.txt	0.6931471805599453
 marked@input1.txt	0.0
 marked@input2.txt	0.0
@@ -2320,12 +2284,9 @@ maturity@input1.txt	0.6931471805599453
 maxbohm@input1.txt	0.6931471805599453
 maximum@input1.txt	0.0
 maximum@input2.txt	0.0
-me--not@input2.txt	0.6931471805599453
-me--the@input2.txt	0.6931471805599453
 meadows@input2.txt	0.6931471805599453
 meal@input2.txt	0.6931471805599453
 meals@input1.txt	1.1736001944781467
-mean--so@input1.txt	0.6931471805599453
 meaning@input1.txt	1.1736001944781467
 meant@input1.txt	0.0
 meant@input2.txt	0.0
@@ -2364,7 +2325,7 @@ met@input1.txt	0.0
 met@input2.txt	0.0
 metallic@input1.txt	0.6931471805599453
 metaphor@input1.txt	1.1736001944781467
-metaphorically.--my@input1.txt	0.6931471805599453
+metaphorically@input1.txt	0.6931471805599453
 metaphysical@input1.txt	1.1736001944781467
 method@input1.txt	0.0
 method@input2.txt	0.0
@@ -2383,7 +2344,6 @@ military@input1.txt	0.6931471805599453
 millard@input1.txt	0.6931471805599453
 mind@input1.txt	0.0
 mind@input2.txt	0.0
-mind)--perhaps@input2.txt	0.6931471805599453
 mine@input1.txt	0.0
 mine@input2.txt	0.0
 minor@input1.txt	0.6931471805599453
@@ -2423,15 +2383,12 @@ monthly@input1.txt	0.6931471805599453
 months@input1.txt	0.0
 months@input2.txt	0.0
 mood@input1.txt	1.1736001944781467
-moon@input2.txt	1.1736001944781467
-moon--i@input2.txt	0.6931471805599453
-moonlight@input2.txt	1.808724531849926
-moonlight--the@input2.txt	0.6931471805599453
+moon@input2.txt	1.4546471909787544
+moonlight@input2.txt	1.9351002048969557
 mopboard@input2.txt	0.6931471805599453
 moral@input1.txt	1.9351002048969557
 morbid@input1.txt	0.6931471805599453
 morbidity@input1.txt	0.6931471805599453
-more--i@input2.txt	0.6931471805599453
 morning@input1.txt	0.0
 morning@input2.txt	0.0
 morning-room@input1.txt	1.1736001944781467
@@ -2444,7 +2401,6 @@ moulton's@input1.txt	0.6931471805599453
 mourning@input1.txt	1.6540532083963482
 move@input1.txt	0.0
 move@input2.txt	0.0
-move--and@input2.txt	0.6931471805599453
 movement@input1.txt	0.6931471805599453
 moving@input1.txt	0.0
 moving@input2.txt	0.0
@@ -2456,7 +2412,6 @@ music@input1.txt	2.1345062223145495
 music-room@input1.txt	0.6931471805599453
 musn't@input2.txt	0.6931471805599453
 mustn't@input1.txt	0.6931471805599453
-myself--before@input2.txt	0.6931471805599453
 mysterious@input2.txt	0.6931471805599453
 myth@input1.txt	0.6931471805599453
 n.b@input1.txt	0.6931471805599453
@@ -2467,8 +2422,7 @@ names@input1.txt	1.808724531849926
 nap@input2.txt	0.6931471805599453
 natural@input1.txt	1.1736001944781467
 naturally@input1.txt	1.9351002048969557
-nature@input1.txt	2.1345062223145495
-nature--i@input1.txt	0.6931471805599453
+nature@input1.txt	2.2161472013975634
 nearer@input1.txt	0.6931471805599453
 neck@input2.txt	0.6931471805599453
 neckties@input1.txt	1.1736001944781467
@@ -2525,7 +2479,6 @@ notorious@input1.txt	0.6931471805599453
 novel@input1.txt	1.4546471909787544
 novels@input1.txt	1.1736001944781467
 november@input2.txt	1.1736001944781467
-now--but@input1.txt	0.6931471805599453
 nowadays@input1.txt	1.808724531849926
 nuisance@input1.txt	0.6931471805599453
 number@input1.txt	0.0
@@ -2554,7 +2507,6 @@ occur@input1.txt	0.0
 occur@input2.txt	0.0
 occurred@input1.txt	1.1736001944781467
 odor@input2.txt	1.1736001944781467
-off--the@input2.txt	0.6931471805599453
 offend@input1.txt	0.6931471805599453
 offer@input1.txt	1.6540532083963482
 offering@input1.txt	1.4546471909787544
@@ -2571,11 +2523,8 @@ old-fashioned@input2.txt	0.0
 older@input1.txt	0.6931471805599453
 omit@input1.txt	0.6931471805599453
 omnibus@input1.txt	0.6931471805599453
-once--i@input1.txt	0.6931471805599453
 one's@input1.txt	0.0
 one's@input2.txt	0.0
-one--the@input1.txt	0.0
-one--the@input2.txt	0.0
 oneself@input1.txt	0.6931471805599453
 online@input1.txt	0.0
 online@input2.txt	0.0
@@ -2644,9 +2593,6 @@ pale@input1.txt	0.6931471805599453
 papa@input1.txt	1.1736001944781467
 paper@input1.txt	0.0
 paper@input2.txt	0.0
-paper--in@input2.txt	0.6931471805599453
-paper--she@input2.txt	0.6931471805599453
-paper--the@input2.txt	0.6931471805599453
 papers@input1.txt	1.1736001944781467
 paperwork@input1.txt	0.0
 paperwork@input2.txt	0.0
@@ -2678,8 +2624,7 @@ paths@input2.txt	1.1736001944781467
 patience@input2.txt	0.6931471805599453
 patient@input2.txt	0.6931471805599453
 patronising@input1.txt	0.6931471805599453
-pattern@input2.txt	2.8034493244194274
-pattern--it@input2.txt	0.6931471805599453
+pattern@input2.txt	2.835694542096358
 patterns@input2.txt	0.6931471805599453
 pause@input1.txt	2.0419493140006186
 pay@input1.txt	0.0
@@ -2711,7 +2656,6 @@ performed@input1.txt	0.0
 performed@input2.txt	0.0
 performing@input1.txt	0.0
 performing@input2.txt	0.0
-perhaps--(i@input2.txt	0.6931471805599453
 period@input1.txt	1.4546471909787544
 periodic@input1.txt	0.0
 periodic@input2.txt	0.0
@@ -2741,7 +2685,7 @@ pglaf@input1.txt	0.0
 pglaf@input2.txt	0.0
 philanthropic@input1.txt	1.1736001944781467
 phosphates@input2.txt	0.6931471805599453
-phosphites--whichever@input2.txt	0.6931471805599453
+phosphites@input2.txt	0.6931471805599453
 phrase@input1.txt	0.0
 phrase@input2.txt	0.0
 phrased@input1.txt	0.6931471805599453
@@ -2782,6 +2726,7 @@ pleased@input2.txt	0.0
 pleases@input2.txt	0.6931471805599453
 pleasure@input1.txt	2.5224023279188197
 pleasures@input1.txt	1.4546471909787544
+plunge@input2.txt	0.6931471805599453
 plunges@input2.txt	0.6931471805599453
 poachers@input1.txt	0.6931471805599453
 pocket@input1.txt	1.4546471909787544
@@ -2877,7 +2822,8 @@ prism@input1.txt	3.7643553522558304
 prism's@input1.txt	1.1736001944781467
 private@input1.txt	0.0
 private@input2.txt	0.0
-privately@input1.txt	0.6931471805599453
+privately@input1.txt	0.0
+privately@input2.txt	0.0
 probable@input1.txt	0.6931471805599453
 problem@input1.txt	0.0
 problem@input2.txt	0.0
@@ -3001,7 +2947,7 @@ rare@input2.txt	0.6931471805599453
 rarely@input1.txt	1.6540532083963482
 rate@input1.txt	1.9351002048969557
 ravages@input2.txt	0.6931471805599453
-ray--it@input2.txt	0.6931471805599453
+ray@input2.txt	0.6931471805599453
 re-use@input1.txt	0.0
 re-use@input2.txt	0.0
 reach@input2.txt	1.808724531849926
@@ -3214,17 +3160,13 @@ romantic@input1.txt	0.0
 romantic@input2.txt	0.0
 room@input1.txt	0.0
 room@input2.txt	0.0
-room--it@input2.txt	0.6931471805599453
 rooms@input2.txt	0.6931471805599453
-rope@input2.txt	0.6931471805599453
-rope--you@input2.txt	0.6931471805599453
+rope@input2.txt	1.1736001944781467
 rose@input1.txt	1.6540532083963482
 roses@input1.txt	0.0
 roses@input2.txt	0.0
 round@input1.txt	0.0
 round@input2.txt	0.0
-round--it@input2.txt	0.6931471805599453
-round--round@input2.txt	0.6931471805599453
 royalties@input1.txt	0.0
 royalties@input2.txt	0.0
 royalty@input1.txt	0.0
@@ -3246,7 +3188,6 @@ sad@input1.txt	1.4546471909787544
 sadly@input1.txt	1.1736001944781467
 safe@input1.txt	0.0
 safe@input2.txt	0.0
-said--very@input2.txt	0.6931471805599453
 sake@input1.txt	0.0
 sake@input2.txt	0.0
 salt@input1.txt	0.0
@@ -3265,7 +3206,6 @@ saturday@input1.txt	1.4546471909787544
 save@input1.txt	0.0
 save@input2.txt	0.0
 savour@input1.txt	0.6931471805599453
-saw--not@input2.txt	0.6931471805599453
 scandal@input1.txt	0.6931471805599453
 scandalous@input1.txt	0.6931471805599453
 scattered@input1.txt	0.0
@@ -3466,7 +3406,6 @@ smooches@input2.txt	0.6931471805599453
 smoothly@input2.txt	0.6931471805599453
 smouldering@input2.txt	0.6931471805599453
 snare@input1.txt	1.1736001944781467
-so--i@input2.txt	0.6931471805599453
 social@input1.txt	1.9351002048969557
 society@input1.txt	0.0
 society@input2.txt	0.0
@@ -3572,7 +3511,7 @@ sticketh@input2.txt	0.6931471805599453
 sticks@input2.txt	0.6931471805599453
 stiffly@input1.txt	0.6931471805599453
 stimulating@input2.txt	0.6931471805599453
-stimulus--but@input2.txt	0.6931471805599453
+stimulus@input2.txt	0.6931471805599453
 stir@input2.txt	0.6931471805599453
 stirred@input1.txt	0.6931471805599453
 stock-brokers@input1.txt	0.6931471805599453
@@ -3637,7 +3576,7 @@ suffer@input2.txt	0.0
 suffered@input1.txt	0.6931471805599453
 suffering@input1.txt	0.6931471805599453
 sugar@input1.txt	1.6540532083963482
-suicide--plunge@input2.txt	0.6931471805599453
+suicide@input2.txt	0.6931471805599453
 suit@input1.txt	0.6931471805599453
 suits@input1.txt	1.4546471909787544
 sulphur@input2.txt	0.6931471805599453
@@ -3718,15 +3657,13 @@ temporary@input1.txt	0.0
 temporary@input2.txt	0.0
 temptation@input1.txt	0.6931471805599453
 ten@input1.txt	1.4546471909787544
-tendency@input2.txt	0.6931471805599453
-tendency--what@input2.txt	0.6931471805599453
+tendency@input2.txt	1.1736001944781467
 terminus@input1.txt	0.6931471805599453
 terms@input1.txt	0.0
 terms@input2.txt	0.0
 terrible@input1.txt	2.1345062223145495
 terror@input2.txt	0.6931471805599453
 that's@input1.txt	1.808724531849926
-that--you'll@input2.txt	0.6931471805599453
 theatre@input1.txt	1.1736001944781467
 theory@input1.txt	1.1736001944781467
 there's@input1.txt	0.0
@@ -3736,14 +3673,12 @@ thing@input1.txt	0.0
 thing@input2.txt	0.0
 things@input1.txt	0.0
 things@input2.txt	0.0
-think--i@input2.txt	0.6931471805599453
 thinking@input1.txt	0.6931471805599453
 thinks@input2.txt	0.6931471805599453
 third@input1.txt	1.1736001944781467
 thirty@input1.txt	0.0
 thirty@input2.txt	0.0
-thirty-five@input1.txt	1.4546471909787544
-thirty-five--a@input1.txt	0.6931471805599453
+thirty-five@input1.txt	1.6540532083963482
 thomas@input1.txt	1.6540532083963482
 thoroughly@input1.txt	1.6540532083963482
 thought@input1.txt	0.0
@@ -3828,7 +3763,7 @@ treatment@input1.txt	0.0
 treatment@input2.txt	0.0
 tree@input1.txt	0.6931471805599453
 trees@input2.txt	1.1736001944781467
-tremens--go@input2.txt	0.6931471805599453
+tremens@input2.txt	0.6931471805599453
 trespassing@input1.txt	0.6931471805599453
 trials@input1.txt	0.6931471805599453
 trip@input2.txt	0.6931471805599453
@@ -3882,7 +3817,6 @@ undeceive@input1.txt	0.6931471805599453
 undeceived@input1.txt	0.6931471805599453
 understand@input1.txt	0.0
 understand@input2.txt	0.0
-understand--a@input1.txt	0.6931471805599453
 undertaking@input2.txt	0.6931471805599453
 underway@input2.txt	0.6931471805599453
 undivided@input1.txt	0.6931471805599453
@@ -4020,8 +3954,7 @@ walking@input2.txt	1.1736001944781467
 walks@input1.txt	0.0
 walks@input2.txt	0.0
 wall@input2.txt	1.6540532083963482
-wall-paper@input2.txt	2.3552415281781567
-wall-paper--he@input2.txt	0.6931471805599453
+wall-paper@input2.txt	2.415553218815157
 wallowing@input2.txt	0.6931471805599453
 wallpaper@input2.txt	1.9351002048969557
 walls@input2.txt	1.4546471909787544
@@ -4043,7 +3976,6 @@ watching@input2.txt	0.6931471805599453
 water@input1.txt	1.1736001944781467
 watering@input1.txt	1.1736001944781467
 waves@input2.txt	0.6931471805599453
-way--it@input2.txt	0.6931471805599453
 ways@input1.txt	0.0
 ways@input2.txt	0.0
 weak@input1.txt	1.1736001944781467
@@ -4070,18 +4002,17 @@ well@input2.txt	0.0
 well-hidden@input2.txt	0.6931471805599453
 well-kept@input1.txt	0.6931471805599453
 wells@input1.txt	1.4546471909787544
-were--well@input1.txt	0.6931471805599453
 west@input1.txt	0.0
 west@input2.txt	0.0
 wharf@input2.txt	0.6931471805599453
 whatsoever@input1.txt	0.0
 whatsoever@input2.txt	0.0
+whichever@input2.txt	0.6931471805599453
 whistle@input1.txt	0.6931471805599453
 white@input2.txt	0.6931471805599453
 whitewashed@input2.txt	0.6931471805599453
 wholesome@input1.txt	0.6931471805599453
 whooping@input1.txt	0.6931471805599453
-why--privately--i've@input2.txt	0.6931471805599453
 wicked@input1.txt	2.0419493140006186
 wide@input1.txt	0.0
 wide@input2.txt	0.0
@@ -4098,14 +4029,12 @@ wind@input2.txt	0.6931471805599453
 winding@input2.txt	0.6931471805599453
 window@input1.txt	0.0
 window@input2.txt	0.0
-window--i@input2.txt	0.6931471805599453
 windows@input2.txt	2.2161472013975634
 wine@input1.txt	0.0
 wine@input2.txt	0.0
 wink@input2.txt	0.6931471805599453
 wipe@input1.txt	0.6931471805599453
-wise@input2.txt	0.6931471805599453
-wise,--but@input2.txt	0.6931471805599453
+wise@input2.txt	1.1736001944781467
 wished@input2.txt	1.4546471909787544
 woe@input1.txt	0.6931471805599453
 woke@input2.txt	0.6931471805599453
@@ -4114,8 +4043,7 @@ woman@input2.txt	0.0
 womanthrope@input1.txt	0.6931471805599453
 women@input1.txt	0.0
 women@input2.txt	0.0
-wonder@input2.txt	2.0419493140006186
-wonder--i@input2.txt	0.6931471805599453
+wonder@input2.txt	2.1345062223145495
 wonderful@input1.txt	2.0419493140006186
 wonderfully@input1.txt	0.0
 wonderfully@input2.txt	0.0
@@ -4159,7 +4087,6 @@ yesterday@input1.txt	1.6540532083963482
 yesterday's@input1.txt	0.6931471805599453
 yew-tree@input1.txt	0.6931471805599453
 you're@input1.txt	1.1736001944781467
-you--are@input1.txt	0.6931471805599453
 young@input1.txt	0.0
 young@input2.txt	0.0
 younger@input1.txt	1.808724531849926

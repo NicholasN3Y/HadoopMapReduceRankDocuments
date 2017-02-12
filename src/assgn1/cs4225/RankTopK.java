@@ -29,22 +29,22 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 public class RankTopK extends Configured implements Tool {
-	
-	private static final String INTERMEDIATE_PATH1 = "/assignment_0/intermediate_result/1";
-	private static final String INTERMEDIATE_PATH2 = "/assignment_0/intermediate_result/2";
-	private static final String INTERMEDIATE_PATH3 = "/assignment_0/intermediate_result/3";
-	
-	
+
+	private static final String INTERMEDIATE_PATH1 = "a0112224/assignment_0/intermediate_result/1";
+	private static final String INTERMEDIATE_PATH2 = "a0112224/assignment_0/intermediate_result/2";
+	private static final String INTERMEDIATE_PATH3 = "a0112224/assignment_0/intermediate_result/3";
+
+
 	public static class Mapper1 extends Mapper<Object, Text, Text, IntWritable>{
 		private final static IntWritable one = new IntWritable(1);
 		private Text term = new Text();
-		
+
 		private Set<String> termsToExclude = new HashSet<String>();
-		
+
 		private Configuration config;
 		private BufferedReader fis;
-		
-		
+
+
 		@Override
 		public void setup(Context context) throws IOException, InterruptedException {
 			config = context.getConfiguration();
@@ -55,10 +55,10 @@ public class RankTopK extends Configured implements Tool {
 				parseSkipFile(skipfileName);
 			}
 		}
-		
+
 		private void parseSkipFile(String filename){
 			try{
-				
+
 				fis = new BufferedReader(new FileReader(filename));
 				String term = null;
 				while((term = fis.readLine()) != null) {
@@ -68,31 +68,38 @@ public class RankTopK extends Configured implements Tool {
 				System.err.println("Exception caught while parsing");
 			}
 		}
-		
+
 		@Override
 		public void map(Object key, Text value, Context context) 
 				throws IOException, InterruptedException { 
-			 //get the name of file containing this key/value pair
-		     //read one line, tokenize into  (word@filename, 1) pairs	
+			//get the name of file containing this key/value pair
+			//read one line, tokenize into  (word@filename, 1) pairs	
 			String fileName=((FileSplit)context.getInputSplit()).getPath().getName();
 			String line = value.toString();
 			StringTokenizer tokenizer = new StringTokenizer(line);
 			while (tokenizer.hasMoreTokens()){
-				String token = tokenizer.nextToken().toLowerCase();
-				token = token.replaceFirst("^[^a-zA-Z]+", "");
-				token = token.replaceAll("[^a-zA-Z]+$", "");
-				token = token.trim();
-				System.out.println(token);
-				if(!termsToExclude.contains(token) && token != ""){
-					term.set(token+"@"+fileName);
-					context.write(term, one);
-				}else{
-					//System.err.println("Excluded" + token);
+				String token_orig = tokenizer.nextToken().toLowerCase();
+				String [] tokens = token_orig.split("--");
+				for (String token : tokens ){
+					token = token.replaceFirst("^[^a-zA-Z]+", "");
+					token = token.replaceAll("[^a-zA-Z]+$", "");
+					token = token.trim();
+
+					if (token.equals("")){
+						continue;
+					}
+					if(!termsToExclude.contains(token)){
+						System.out.println(token);
+						term.set(token+"@"+fileName);
+						context.write(term, one);
+					}else{
+						//System.err.println("Excluded" + token);
+					}
 				}
 			}
 		}
 	}
-	
+
 	public static class Reducer1 extends Reducer<Text, IntWritable, Text, IntWritable>{
 		public void reduce(Text key, Iterable<IntWritable> values, Context context) throws 	IOException, InterruptedException { 
 			//sum up all the values, output (word@filename,freq) pair
@@ -103,7 +110,7 @@ public class RankTopK extends Configured implements Tool {
 			context.write(key, new IntWritable(freq));
 		} 		
 	}
-	
+
 	public static class Mapper2 extends Mapper<Object, Text, Text, Text>{
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//parse the key/value pair into word, filename, frequency
@@ -125,7 +132,7 @@ public class RankTopK extends Configured implements Tool {
 			context.write(output_key, output_value);
 		}
 	}
-	
+
 	public static class Reducer2 extends Reducer<Text, Text, Text, DoubleWritable>{
 		public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 			int numOfFileWordAppearsIn = 0;
@@ -137,9 +144,9 @@ public class RankTopK extends Configured implements Tool {
 				numOfFileWordAppearsIn++;
 			}
 			System.out.println(key + "\t" +numOfFileWordAppearsIn);
-			
+
 			int numOfDocs = Integer.parseInt(context.getConfiguration().get("numOfDocs"));
-			
+
 			Text output_key = new Text();
 			DoubleWritable output_value = new DoubleWritable();
 			for (String filename : tempHashset.keySet()){
@@ -153,7 +160,7 @@ public class RankTopK extends Configured implements Tool {
 			}
 		}
 	}
-	
+
 	public static class Mapper3 extends Mapper<Object, Text, Text, Text>{
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//parse the key/value pair into word, filename, tfidf
@@ -171,7 +178,7 @@ public class RankTopK extends Configured implements Tool {
 			context.write(output_key, output_value);
 		}
 	}	
-	
+
 	public static class Reducer3 extends Reducer<Text, Text, Text, DoubleWritable>{
 		public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
 			//key is a filename, values are in the form of (word=tfidf)
@@ -186,7 +193,7 @@ public class RankTopK extends Configured implements Tool {
 				Double tfidf = Double.parseDouble(temp[1]);
 				tempHashSet.put(word, tfidf);
 			}
-			
+
 			double squaredSumOfTfIdf = 0;
 			for (Double hashValue : tempHashSet.values()){
 				squaredSumOfTfIdf += Math.pow(hashValue, 2);
@@ -201,13 +208,13 @@ public class RankTopK extends Configured implements Tool {
 			}		
 		}
 	}
-	
+
 	public static class Mapper4 extends Mapper<Object, Text, Text, Text>{
-		
+
 		private Map<String, Integer> queryTerms = new HashMap<String, Integer>();
 		private Configuration config;
 		private BufferedReader fis;
-		
+
 		@Override
 		public void setup(Context context) throws IOException, InterruptedException {
 			config = context.getConfiguration();
@@ -218,10 +225,10 @@ public class RankTopK extends Configured implements Tool {
 				parseSkipFile(query);
 			}
 		}
-		
+
 		private void parseSkipFile(String filename){
-				try{
-				
+			try{
+
 				fis = new BufferedReader(new FileReader(filename));
 				String term = null;
 				while((term = fis.readLine()) != null) {
@@ -236,7 +243,7 @@ public class RankTopK extends Configured implements Tool {
 				System.err.println("Exception caught while parsing query file");
 			}
 		}
-		
+
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//parse the key/value pair into word, filename, norm-tfidf
 			//if the word is contained in the query file, output (filename, word=norm-tfidf)
@@ -253,18 +260,18 @@ public class RankTopK extends Configured implements Tool {
 				output_value.set(word+"="+norm_tfidf);
 				int occurrence = queryTerms.get(word);
 				while (occurrence != 0){
-				System.out.println(output_key + " " + output_value);
+					System.out.println(output_key + " " + output_value);
 					context.write(output_key, output_value);
 					occurrence--;
 				}
 			}
 		}	
 	}
-	
+
 	public static class Reducer4 extends Reducer<Text, Text, Text, DoubleWritable>{
 		public void reduce(Text key, Iterable<Text> values, Context context) throws 	IOException, InterruptedException { 
-            //Note: key is a filename, values are in the form of (word=norm-tfidf)
-            //sum up all the norm-tfidfs in the values, output (filename,total-norm-tfidf) pair\
+			//Note: key is a filename, values are in the form of (word=norm-tfidf)
+			//sum up all the norm-tfidfs in the values, output (filename,total-norm-tfidf) pair\
 			Text output_key = new Text();
 			DoubleWritable output_value = new DoubleWritable();
 			double total = 0;
@@ -277,94 +284,94 @@ public class RankTopK extends Configured implements Tool {
 			context.write(output_key, output_value);
 		} 		
 	}
-		
+
 	@Override
 	public int run(String[] args) throws Exception {
-		
-		
+
+
 		Path source = new Path(args[0]);
 		Path dest = new Path(args[1]); 
 		Path sw = new Path(args[2]);
 		Path query = new Path(args[3]);
-		
+
 		FileSystem fs = FileSystem.get(getConf());
 		ContentSummary cs = fs.getContentSummary(source);
 		long filecount = cs.getFileCount();
-		
+
 		/*
 		 * Job 1 : Map1 -> Reduce1
 		 */
-		
+
 		Configuration conf = new Configuration();
 		Job job = Job.getInstance(conf, "DocumentTokenizer");
 		job.setJarByClass(RankTopK.class);
-		
+
 		job.setMapperClass(Mapper1.class);
 		job.setReducerClass(Reducer1.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
 		job.addCacheFile(sw.toUri());
-		
+
 		FileInputFormat.addInputPath(job, source);
 		FileOutputFormat.setOutputPath(job, new Path(INTERMEDIATE_PATH1));
 
 		job.waitForCompletion(true);
-		
+
 		/*
 		 * Job 2 : Map2 -> Reduce2		
 		 */
 		Configuration conf2 = new Configuration();
-		
+
 		conf2.set("numOfDocs", ""+filecount);
 		Job job2 =  Job.getInstance(conf2, "TfIdfProducer");
 		job2.setJarByClass(RankTopK.class);
-		
+
 		job2.setMapperClass(Mapper2.class);
 		job2.setReducerClass(Reducer2.class);
 		job2.setOutputKeyClass(Text.class);
 		job2.setOutputValueClass(Text.class);
-		
+
 		FileInputFormat.addInputPath(job2, new Path(INTERMEDIATE_PATH1));
 		FileOutputFormat.setOutputPath(job2, new Path(INTERMEDIATE_PATH2));
-		
+
 		job2.waitForCompletion(true);
-		
+
 		/*
 		 * Job 3 : Map3 -> Reduce3
 		 */
 		Configuration conf3 = new Configuration();
 		Job job3 = Job.getInstance(conf3, "TfIdfNormalizer");
 		job3.setJarByClass(RankTopK.class);
-		
+
 		job3.setMapperClass(Mapper3.class);
 		job3.setReducerClass(Reducer3.class);
 		job3.setOutputKeyClass(Text.class);
 		job3.setOutputValueClass(Text.class);
-		
+
 		FileInputFormat.addInputPath(job3, new Path(INTERMEDIATE_PATH2));
 		FileOutputFormat.setOutputPath(job3, new Path(INTERMEDIATE_PATH3));
-		
+
 		job3.waitForCompletion(true);
 
 		Configuration conf4 = new Configuration();
 		Job job4 = Job.getInstance(conf4, "QuerySolver");
 		job4.setJarByClass(RankTopK.class);
-		
+
 		job4.setMapperClass(Mapper4.class);
 		job4.setReducerClass(Reducer4.class);
 		job4.setOutputKeyClass(Text.class);
 		job4.setOutputValueClass(Text.class);
 		job4.addCacheFile(query.toUri());
-		
+
 		FileInputFormat.addInputPath(job4, new Path(INTERMEDIATE_PATH3));
 		FileOutputFormat.setOutputPath(job4, dest);
 
-		
+
 		return job4.waitForCompletion(true)? 0 : 1;
 	}
-	
+
 	public static void main(String[]args) throws Exception{
 		ToolRunner.run(new Configuration(), new RankTopK(), args);
 	}
-	
+
 }
