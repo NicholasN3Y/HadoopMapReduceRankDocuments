@@ -37,10 +37,10 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class RankTopK extends Configured implements Tool {
 
-	private static final String INTERMEDIATE_PATH1 = "a0112224/assignment_0/intermediate_result/1";
-	private static final String INTERMEDIATE_PATH2 = "a0112224/assignment_0/intermediate_result/2";
-	private static final String INTERMEDIATE_PATH3 = "a0112224/assignment_0/intermediate_result/3";
-	private static final String INTERMEDIATE_PATH4 = "a0112224/assignment_0/intermediate_result/4";
+	private static final String INTERMEDIATE_PATH1 = "a0112224/assignment_1/intermediate_result/1";
+	private static final String INTERMEDIATE_PATH2 = "a0112224/assignment_1/intermediate_result/2";
+	private static final String INTERMEDIATE_PATH3 = "a0112224/assignment_1/intermediate_result/3";
+	private static final String INTERMEDIATE_PATH4 = "a0112224/assignment_1/intermediate_result/4";
 
 
 	public static class Mapper1 extends Mapper<Object, Text, Text, IntWritable>{

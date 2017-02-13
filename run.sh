@@ -20,21 +20,22 @@ echo -e  "\n########## creating jar file ##########\n"
 jar -cvf RankTopK.jar .
 echo -e  "\n########## clean previous hadoop Job output directory ##########\n"
 hadoop fs -rm -R $dest
-hadoop fs -rm -R a0112224/assignment_0/intermediate_result
+hadoop fs -rm -R a0112224/assignment_1/intermediate_result
 
 echo -e  "\n########## start hadoop MapReduce Job ##########\n"
 hadoop jar RankTopK.jar assgn1.cs4225.RankTopK $source $dest $sw $query $K
+echo -e "\nIf results show less than ${K}, means that remaining files have 0 correlation."
 echo -e  "\n########## get output results from hadoop fs ##########\n"
 rm ../final_results.txt
 hadoop fs -get $dest/part-r-00000 ../final_results.txt
 rm ../1.txt
-hadoop fs -get a0112224/assignment_0/intermediate_result/1/part-r-00000 ../1.txt
+hadoop fs -get a0112224/assignment_1/intermediate_result/1/part-r-00000 ../1.txt
 rm ../2.txt
-hadoop fs -get a0112224/assignment_0/intermediate_result/2/part-r-00000 ../2.txt
+hadoop fs -get a0112224/assignment_1/intermediate_result/2/part-r-00000 ../2.txt
 rm ../3.txt
-hadoop fs -get a0112224/assignment_0/intermediate_result/3/part-r-00000 ../3.txt
+hadoop fs -get a0112224/assignment_1/intermediate_result/3/part-r-00000 ../3.txt
 rm ../4.txt
-hadoop fs -get a0112224/assignment_0/intermediate_result/4/part-r-00000 ../4.txt
+hadoop fs -get a0112224/assignment_1/intermediate_result/4/part-r-00000 ../4.txt
 
 cd ..
 echo -e "\nIntermediate results for job 1 to 4 can be found in txt files 1 - 4 respectively"

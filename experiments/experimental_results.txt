@@ -1,0 +1,73 @@
+below are the experimental results. If number of results is less than intended, it means that the other
+files have 0 correlation with the query.
+
+query q1.txt: 
+dinner 
+theatre
+happy
+
+****** Results ******
+Top 5 Documents corresponding to query is by order: 
+f3.txt
+f1.txt
+f4.txt
+f5.txt
+f10.txt
+********************
+
+query q2.txt:
+earnest
+importance
+ability
+financially
+ 
+****** Results ******
+Top 5 Documents corresponding to query is by order: 
+f8.txt
+f1.txt
+f5.txt
+*******************
+
+query q3.txt:
+oscar
+happy
+winner
+
+****** Results ******
+Top 5 Documents corresponding to query is by order: 
+f1.txt
+f8.txt
+f4.txt
+f2.txt
+********************
+
+query q4.txt:
+party
+liberal
+republic
+like
+elegant
+discrimination
+
+****** Results ******
+Top 5 Documents corresponding to query is by order: 
+f2.txt
+f10.txt
+f5.txt
+*********************
+
+query q5.txt:
+hard
+angry
+color
+intrude
+
+****** Results ******
+Top 5 Documents corresponding to query is by order: 
+f9.txt
+f8.txt
+f6.txt
+f4.txt
+f10.txt
+*********************
+ 
