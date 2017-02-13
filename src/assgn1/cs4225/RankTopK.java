@@ -3,8 +3,8 @@ package assgn1.cs4225;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -19,6 +19,8 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -33,6 +35,7 @@ public class RankTopK extends Configured implements Tool {
 	private static final String INTERMEDIATE_PATH1 = "a0112224/assignment_0/intermediate_result/1";
 	private static final String INTERMEDIATE_PATH2 = "a0112224/assignment_0/intermediate_result/2";
 	private static final String INTERMEDIATE_PATH3 = "a0112224/assignment_0/intermediate_result/3";
+	private static final String INTERMEDIATE_PATH4 = "a0112224/assignment_0/intermediate_result/4";
 
 
 	public static class Mapper1 extends Mapper<Object, Text, Text, IntWritable>{
@@ -269,7 +272,7 @@ public class RankTopK extends Configured implements Tool {
 	}
 
 	public static class Reducer4 extends Reducer<Text, Text, Text, DoubleWritable>{
-		public void reduce(Text key, Iterable<Text> values, Context context) throws 	IOException, InterruptedException { 
+		public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException { 
 			//Note: key is a filename, values are in the form of (word=norm-tfidf)
 			//sum up all the norm-tfidfs in the values, output (filename,total-norm-tfidf) pair\
 			Text output_key = new Text();
@@ -279,10 +282,56 @@ public class RankTopK extends Configured implements Tool {
 				double norm_tfidf = Double.parseDouble(val.toString().split("=")[1]);
 				total += norm_tfidf;
 			}
-			output_key.set(key);
-			output_value.set(total);
-			context.write(output_key, output_value);
+			if (total != 0){
+				output_key.set(key);
+				output_value.set(total);
+				context.write(output_key, output_value);
+			}
 		} 		
+	}
+	
+	public static class Mapper5 extends Mapper<Object, Text, DoubleWritable, Text>{
+		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+			DoubleWritable output_key = new DoubleWritable();
+			Text output_value = new Text();
+			String [] temp = value.toString().split("\\t");
+			output_key.set(Double.parseDouble(temp[1]));
+			output_value.set(temp[0]);
+			context.write(output_key, output_value);
+		}
+	}
+	
+	public static class Reducer5 extends Reducer<DoubleWritable, Text, DoubleWritable, Text>{
+		public void reduce(DoubleWritable key, Iterable<Text> values, Context context) throws IOException, InterruptedException { 
+			DoubleWritable output_key = new DoubleWritable();
+			Text output_value = new Text();
+			for (Text filename : values){
+				output_key.set(key.get());
+				output_value.set(filename);
+				context.write(output_key, output_value);
+			}
+		}
+	}
+	
+	@SuppressWarnings("rawtypes")
+	public static class KeyDescendingComparator extends WritableComparator {
+		protected KeyDescendingComparator(){
+			super(DoubleWritable.class, true);
+		}
+		
+		@Override
+		public int compare(WritableComparable o1, WritableComparable o2) {
+			DoubleWritable key1 = (DoubleWritable) o1;
+			DoubleWritable key2 = (DoubleWritable) o2;
+			
+			if (key1.get() < key2.get()){
+				return 1;
+			}else if(key1.get() == key2.get()){
+				return 0;
+			}else{
+				return -1;
+			}
+		}
 	}
 
 	@Override
@@ -364,14 +413,51 @@ public class RankTopK extends Configured implements Tool {
 		job4.addCacheFile(query.toUri());
 
 		FileInputFormat.addInputPath(job4, new Path(INTERMEDIATE_PATH3));
-		FileOutputFormat.setOutputPath(job4, dest);
+		FileOutputFormat.setOutputPath(job4, new Path(INTERMEDIATE_PATH4));
+		
+		job4.waitForCompletion(true);
 
+		Configuration conf5 = new Configuration();
+		Job job5 = Job.getInstance(conf5, "ResultSorter");
+		job5.setJarByClass(RankTopK.class);
 
-		return job4.waitForCompletion(true)? 0 : 1;
+		job5.setMapperClass(Mapper5.class);
+		job5.setSortComparatorClass(KeyDescendingComparator.class);
+		job5.setReducerClass(Reducer5.class);
+		job5.setOutputKeyClass(DoubleWritable.class);
+		job5.setOutputValueClass(Text.class);
+
+		FileInputFormat.addInputPath(job5, new Path(INTERMEDIATE_PATH4));
+		FileOutputFormat.setOutputPath(job5, dest);
+		
+		return job5.waitForCompletion(true)? 0 : 1;
+		
 	}
 
 	public static void main(String[]args) throws Exception{
 		ToolRunner.run(new Configuration(), new RankTopK(), args);
+		try{
+			FileSystem fs = FileSystem.get(new Configuration());
+			BufferedReader fis = new BufferedReader(new InputStreamReader(fs.open(new Path(args[1]+Path.SEPARATOR+"part-r-00000"))));
+			String term = null;
+			int K = 5;
+		
+			if (args.length == 5){
+				K = Integer.parseInt(args[4]);
+			}
+			
+			System.out.println("\n\n\n****** Results ******");
+			System.out.println("Top " + K + "Documents corresponding to query is by order:");
+			while((term = fis.readLine()) != null && K > 0) {
+				System.out.println(term.split("\\t")[1]);
+				K--;
+			}
+			fis.close();
+		} catch (IOException e){
+			e.printStackTrace();
+		}
+		
+		System.out.println("Here is the answer to everything!");
 	}
 
 }
