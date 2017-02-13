@@ -1,3 +1,8 @@
+/*
+ * author: Nicholas Ng Nuo Yang
+ * matric: A0112224B
+ */
+
 package assgn1.cs4225;
 
 import java.io.BufferedReader;
@@ -47,7 +52,6 @@ public class RankTopK extends Configured implements Tool {
 		private Configuration config;
 		private BufferedReader fis;
 
-
 		@Override
 		public void setup(Context context) throws IOException, InterruptedException {
 			config = context.getConfiguration();
@@ -92,7 +96,7 @@ public class RankTopK extends Configured implements Tool {
 						continue;
 					}
 					if(!termsToExclude.contains(token)){
-						System.out.println(token);
+						//System.out.println(token);
 						term.set(token+"@"+fileName);
 						context.write(term, one);
 					}else{
@@ -105,7 +109,8 @@ public class RankTopK extends Configured implements Tool {
 
 	public static class Reducer1 extends Reducer<Text, IntWritable, Text, IntWritable>{
 		public void reduce(Text key, Iterable<IntWritable> values, Context context) throws 	IOException, InterruptedException { 
-			//sum up all the values, output (word@filename,freq) pair
+			//sum up all the values
+			//output (word@filename,freq) pair
 			int freq = 0;
 			for(IntWritable val : values){
 				freq += val.get();
@@ -117,20 +122,19 @@ public class RankTopK extends Configured implements Tool {
 	public static class Mapper2 extends Mapper<Object, Text, Text, Text>{
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
 			//parse the key/value pair into word, filename, frequency
+			//output a pair (word, filename=frequency)
 			Text output_key = new Text();
 			Text output_value = new Text();
 			String line = value.toString();
 			String [] terms = line.split("\\t");
 			String [] word_filename = terms[0].split("@");
-			assert(terms.length == 2);
-			assert (word_filename.length == 2);
+			
 			int freq = Integer.parseInt(terms[1]);
 			String term = word_filename[0];
 			String filename = word_filename[1];
-			//check if filename is unique 
+			
 			output_key.set(term);
 			output_value.set(filename + "=" + freq);
-			//output a pair (word, filename=frequency
 			//System.out.println(term + " in " + filename + " has " + freq);
 			context.write(output_key, output_value);
 		}
@@ -138,6 +142,8 @@ public class RankTopK extends Configured implements Tool {
 
 	public static class Reducer2 extends Reducer<Text, Text, Text, DoubleWritable>{
 		public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+            //Note: key is a word, values are in the form of (filename=frequency)
+            //sum up the number of files containing a particular word
 			int numOfFileWordAppearsIn = 0;
 			Iterator<Text> itr = values.iterator();
 			Map<String, Integer>tempHashset = new HashMap<>();
@@ -146,7 +152,7 @@ public class RankTopK extends Configured implements Tool {
 				tempHashset.put(value_sep[0], Integer.parseInt(value_sep[1]));
 				numOfFileWordAppearsIn++;
 			}
-			System.out.println(key + "\t" +numOfFileWordAppearsIn);
+			//System.out.println(key + "\t" +numOfFileWordAppearsIn);
 
 			int numOfDocs = Integer.parseInt(context.getConfiguration().get("numOfDocs"));
 
@@ -154,9 +160,9 @@ public class RankTopK extends Configured implements Tool {
 			DoubleWritable output_value = new DoubleWritable();
 			for (String filename : tempHashset.keySet()){
 				int freq = tempHashset.get(filename);
-				System.err.println("Number of documents is " + numOfDocs + " frequency "+ freq);
+				//System.err.println("Number of documents is " + numOfDocs + " frequency "+ freq);
 				double tfidf = (1 + Math.log(freq)) * (double)(Math.log((double)numOfDocs / numOfFileWordAppearsIn));
-				System.err.println("2nd Job "+key+"@"+filename+" with "+tfidf + " appears in " + numOfFileWordAppearsIn + " documents");
+				//System.err.println("2nd Job "+key+"@"+filename+" with "+tfidf + " appears in " + numOfFileWordAppearsIn + " documents");
 				output_key.set(key+"@"+filename);
 				output_value.set(tfidf);
 				context.write(output_key, output_value);
@@ -172,12 +178,10 @@ public class RankTopK extends Configured implements Tool {
 			Text output_value = new Text();
 			String line = value.toString();
 			String [] terms = line.split("\\t");
-			String [] word_filename = terms[0].split("@");
-			assert(terms.length == 2);
-			assert (word_filename.length == 2);                   
+			String [] word_filename = terms[0].split("@");                   
 			output_key.set(word_filename[1]);
 			output_value.set(word_filename[0]+"="+terms[1]);
-			System.out.println(output_key+" "+output_value);
+			//System.out.println(output_key+" "+output_value);
 			context.write(output_key, output_value);
 		}
 	}	
@@ -201,7 +205,7 @@ public class RankTopK extends Configured implements Tool {
 			for (Double hashValue : tempHashSet.values()){
 				squaredSumOfTfIdf += Math.pow(hashValue, 2);
 			}
-			System.out.println(squaredSumOfTfIdf);
+			//System.out.println(squaredSumOfTfIdf);
 			for (String term : tempHashSet.keySet()){
 				double tfidf = tempHashSet.get(term);
 				double norm_tfidf = tfidf / Math.sqrt(squaredSumOfTfIdf);
@@ -234,6 +238,7 @@ public class RankTopK extends Configured implements Tool {
 
 				fis = new BufferedReader(new FileReader(filename));
 				String term = null;
+				//considers case where query has duplicate terms => more emphasis given
 				while((term = fis.readLine()) != null) {
 					if (queryTerms.containsKey(term)){
 						int occurrence = queryTerms.get(term).intValue();
@@ -263,7 +268,7 @@ public class RankTopK extends Configured implements Tool {
 				output_value.set(word+"="+norm_tfidf);
 				int occurrence = queryTerms.get(word);
 				while (occurrence != 0){
-					System.out.println(output_key + " " + output_value);
+					//System.out.println(output_key + " " + output_value);
 					context.write(output_key, output_value);
 					occurrence--;
 				}
@@ -292,6 +297,8 @@ public class RankTopK extends Configured implements Tool {
 	
 	public static class Mapper5 extends Mapper<Object, Text, DoubleWritable, Text>{
 		public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+			//key: total_tfidf
+			//value: document
 			DoubleWritable output_key = new DoubleWritable();
 			Text output_value = new Text();
 			String [] temp = value.toString().split("\\t");
@@ -303,6 +310,8 @@ public class RankTopK extends Configured implements Tool {
 	
 	public static class Reducer5 extends Reducer<DoubleWritable, Text, DoubleWritable, Text>{
 		public void reduce(DoubleWritable key, Iterable<Text> values, Context context) throws IOException, InterruptedException { 
+			//key: total_tfidf
+			//value: document
 			DoubleWritable output_key = new DoubleWritable();
 			Text output_value = new Text();
 			for (Text filename : values){
@@ -436,6 +445,7 @@ public class RankTopK extends Configured implements Tool {
 
 	public static void main(String[]args) throws Exception{
 		ToolRunner.run(new Configuration(), new RankTopK(), args);
+		//print out the top K to console
 		try{
 			FileSystem fs = FileSystem.get(new Configuration());
 			BufferedReader fis = new BufferedReader(new InputStreamReader(fs.open(new Path(args[1]+Path.SEPARATOR+"part-r-00000"))));
@@ -447,7 +457,7 @@ public class RankTopK extends Configured implements Tool {
 			}
 			
 			System.out.println("\n\n\n****** Results ******");
-			System.out.println("Top " + K + "Documents corresponding to query is by order:");
+			System.out.println("Top " + K + " Documents corresponding to query is by order: ");
 			while((term = fis.readLine()) != null && K > 0) {
 				System.out.println(term.split("\\t")[1]);
 				K--;
@@ -456,8 +466,5 @@ public class RankTopK extends Configured implements Tool {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
-		
-		System.out.println("Here is the answer to everything!");
 	}
-
 }

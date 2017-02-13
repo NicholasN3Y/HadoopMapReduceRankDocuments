@@ -36,5 +36,4 @@ The output files from each MapReduce Job is transfered to local directory, and c
 final_results.txt - Result for stage 5
 
 *************
-
-
+END OF FILE -:)
